@@ -1,0 +1,33 @@
+<ul>
+    <li *ngFor="let pacient of pacients">
+        <a routerLink="pacient/detail/{{pacient.id}}">
+            <span>{{pacient.firstName}} {{pacient.lastName}}</span>
+        </a>
+        <button type="button" title="delete pacient" (click)="delete(pacient.id)">Delete</button>
+    </li>
+</ul>
+
+
+<div>
+    <label for="new-pacient-id">Pacient id:</label>
+    <input id="new-pacient-id" #pacientId/>
+
+    <label for="new-pacient-first-name">Pacient first name: </label>
+    <input id="new-pacient-first-name" #pacientFirstName/>
+    <label for="new-pacient-last-name">Pacient last name</label>
+    <input id="new-pacient-last-name" #pacientLastName>
+    <label for="new-pacient-disease">Pacient disease: </label>
+    <input id="new-pacient-disease" #pacientDisease>
+    <label for="new-pacient-address-id">Pacient's id address: </label>
+    <input id="new-pacient-address-id" #pacientAddressId>
+    <label for="new-pacient-address-street-name">Pacient's street name: </label>
+    <input id="new-pacient-address-street-name" #pacientAddressStreetName>
+
+    <label for="new-pacient-address-number">Pacient's street number </label>
+    <input id="new-pacient-address-number" #pacientAddressNumber>
+
+    
+    <button type="button" (click)="add(pacientId.value, pacientFirstName.value, pacientLastName.value, pacientDisease.value, pacientAddressId.value, pacientAddressStreetName.value,pacientAddressNumber.value)">
+        Add pacient
+    </button>
+</div>

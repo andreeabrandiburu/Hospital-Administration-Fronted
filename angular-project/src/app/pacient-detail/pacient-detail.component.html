@@ -1,0 +1,27 @@
+<form [formGroup]="pacientForm">
+    <label for="id">Id</label>
+    <input id="id" type="text" formControlName="id">
+    
+    <label for="firstName">First name</label>
+    <input id="firstName" type="text" formControlName="firstName"/>
+
+    <label for="lastName">Last name</label>
+    <input id="lastName" type="text" formControlName="lastName"/>
+    
+    <label for="disease">Disease</label>
+    <input id="disease" type="text" formControlName="disease"/>
+
+    <div formGroupName="address">
+        <label for="streetId">Street id</label>
+        <input id="streetId" type="text" formControlName="streetId">
+        
+        <label for="streetName">Street name</label>
+        <input id="streetName" type="text" formControlName="streetName">
+
+        <label for="streetNumber">Street number</label>
+        <input id="streetNumber" type="text" formControlName="streetNumber">
+    </div>
+
+    <button type="button" [disabled]="!pacientForm.valid" (click)="save(pacientForm)">Save</button>
+    <button type="button" (click)="goBack()">go back</button>
+</form>

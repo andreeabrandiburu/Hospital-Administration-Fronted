@@ -1,0 +1,25 @@
+<form [formGroup]="doctorForm">
+    <label for="id">Id</label>
+    <input id="id" type="text" formControlName="id">
+
+    <label for="firstName">First name</label>
+    <input id="firstName" type="text" formControlName="firstName">
+
+    <label for="lastName">Last name</label>
+    <input id="lastName" type="text" formControlName="lastName">
+
+
+    <div>
+        <h2>Pacients</h2>
+        <label for="newPacientId">Pacient id</label>
+        <input id="newPacientId" type="text" #newPacientId>
+        <button (click)="addPacient(newPacientId.value)" type="button">Add new pacient</button>
+
+        <div *ngFor=" let pacientId of getPacientsIds()">
+            <span>{{pacientId}}</span>
+        </div>
+    </div>
+
+    <button type="button" [disabled]="!doctorForm.valid" (click)="save(doctorForm)">Save</button>
+    <button type="button" (click)="goBack()">go back</button>
+</form>

@@ -1,0 +1,24 @@
+<ul>
+    <li *ngFor="let doctor of doctors">
+        <a routerLink="doctors/detail/{{doctor.id}}">
+            <span>{{doctor.id}}</span>
+        </a>
+        <button type="button" title="delete doctor" (click)="delete(doctor.id)">Delete</button>
+    </li>
+</ul>
+
+<div>
+    <label for="new-doctor-id">Doctor id</label>
+    <input id="new-doctor-id" #doctorId/>
+
+    <label for="new-doctor-first-name">Doctor first name </label>
+    <input id="new-doctor-first-name" #doctorFirstName>
+
+    <label for="new-doctor-last-name">Doctor last name</label>
+    <input id="new-doctor-last-name" #doctorLastName>
+
+    <button type="button" (click)="add(doctorId.value, doctorFirstName.value, doctorLastName.value)">
+        Add doctor
+    </button>
+    
+</div>
